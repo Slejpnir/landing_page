@@ -16,6 +16,19 @@
       margin-bottom: 50px;
     }
 
+    .offer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .offer img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
     .cta-button {
       padding: 10px 20px;
       background-color: #FF9800;
@@ -44,19 +57,22 @@
         title: '50% Off',
         description: 'Get 50% off on all products!',
         buttonText: 'Shop Now',
-        buttonUrl: 'https://example.com/shop'
+        buttonUrl: 'https://example.com/shop',
+        imageUrl: 'https://example.com/images/offer1.jpg'
       },
       {
         title: 'Free Shipping',
         description: 'Enjoy free shipping on your first order.',
         buttonText: 'Start Shopping',
-        buttonUrl: 'https://example.com/shop'
+        buttonUrl: 'https://example.com/shop',
+        imageUrl: 'https://example.com/images/offer2.jpg'
       },
       {
         title: 'Limited Time Offer',
         description: 'Don\'t miss out on our limited time offer.',
         buttonText: 'Learn More',
-        buttonUrl: 'https://example.com/offer'
+        buttonUrl: 'https://example.com/offer',
+        imageUrl: 'https://example.com/images/offer3.jpg'
       }
     ];
 
@@ -66,11 +82,18 @@
     // Create offer elements
     var offerContainer = document.getElementById('offerContainer');
 
+    var offerDiv = document.createElement('div');
+    offerDiv.className = 'offer';
+
     var offerTitle = document.createElement('h2');
     offerTitle.textContent = randomOffer.title;
 
     var offerDescription = document.createElement('p');
     offerDescription.textContent = randomOffer.description;
+
+    var offerImage = document.createElement('img');
+    offerImage.src = randomOffer.imageUrl;
+    offerImage.alt = randomOffer.title;
 
     var ctaButton = document.createElement('a');
     ctaButton.className = 'cta-button';
@@ -78,9 +101,13 @@
     ctaButton.href = randomOffer.buttonUrl;
 
     // Append elements to the container
-    offerContainer.appendChild(offerTitle);
-    offerContainer.appendChild(offerDescription);
-    offerContainer.appendChild(ctaButton);
+    offerDiv.appendChild(offerTitle);
+    offerDiv.appendChild(offerImage);
+    offerDiv.appendChild(offerDescription);
+    offerDiv.appendChild(ctaButton);
+
+    offerContainer.appendChild(offerDiv);
   </script>
 </body>
 </html>
+
