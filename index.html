@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Landing Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 100px;
+    }
+
+    p {
+      margin-bottom: 50px;
+    }
+
+    .cta-button {
+      padding: 10px 20px;
+      background-color: #FF9800;
+      color: #FFF;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #F57C00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to our Random Landing Page!</h1>
+  <p>Thank you for visiting. Check out the amazing offers below:</p>
+
+  <div id="offerContainer"></div>
+
+  <script>
+    // Random offers data
+    var offers = [
+      {
+        title: '50% Off',
+        description: 'Get 50% off on all products!',
+        buttonText: 'Shop Now',
+        buttonUrl: 'https://example.com/shop'
+      },
+      {
+        title: 'Free Shipping',
+        description: 'Enjoy free shipping on your first order.',
+        buttonText: 'Start Shopping',
+        buttonUrl: 'https://example.com/shop'
+      },
+      {
+        title: 'Limited Time Offer',
+        description: 'Don\'t miss out on our limited time offer.',
+        buttonText: 'Learn More',
+        buttonUrl: 'https://example.com/offer'
+      }
+    ];
+
+    // Select a random offer
+    var randomOffer = offers[Math.floor(Math.random() * offers.length)];
+
+    // Create offer elements
+    var offerContainer = document.getElementById('offerContainer');
+
+    var offerTitle = document.createElement('h2');
+    offerTitle.textContent = randomOffer.title;
+
+    var offerDescription = document.createElement('p');
+    offerDescription.textContent = randomOffer.description;
+
+    var ctaButton = document.createElement('a');
+    ctaButton.className = 'cta-button';
+    ctaButton.textContent = randomOffer.buttonText;
+    ctaButton.href = randomOffer.buttonUrl;
+
+    // Append elements to the container
+    offerContainer.appendChild(offerTitle);
+    offerContainer.appendChild(offerDescription);
+    offerContainer.appendChild(ctaButton);
+  </script>
+</body>
+</html>
