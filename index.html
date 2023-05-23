@@ -120,5 +120,18 @@
     productImage.alt = randomProduct.title;
 
     var ctaButton = document.createElement('a');
-    ctaButton
+    ctaButton.className = 'cta-button';
+    ctaButton.textContent = randomProduct.buttonText;
+    ctaButton.href = randomProduct.buttonUrl;
 
+    // Append elements to the container
+    productDiv.appendChild(productTitle);
+    productDiv.appendChild(productImage);
+    productDiv.appendChild(productDescription);
+    productDiv.appendChild(productPrice);
+    productDiv.appendChild(ctaButton);
+
+    productContainer.appendChild(productDiv);
+  </script>
+</body>
+</html>
