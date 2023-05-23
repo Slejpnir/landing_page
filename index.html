@@ -16,17 +16,32 @@
       margin-bottom: 50px;
     }
 
-    .offer {
+    .product {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-bottom: 50px;
     }
 
-    .offer img {
+    .product img {
       width: 200px;
       height: auto;
       margin-bottom: 20px;
+    }
+
+    .product-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .product-description {
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 18px;
+      margin-bottom: 10px;
     }
 
     .cta-button {
@@ -46,68 +61,64 @@
 </head>
 <body>
   <h1>Welcome to our Random Landing Page!</h1>
-  <p>Thank you for visiting. Check out the amazing offers below:</p>
+  <p>Thank you for visiting. Check out the amazing products below:</p>
 
-  <div id="offerContainer"></div>
+  <div id="productContainer"></div>
 
   <script>
-    // Random offers data
-    var offers = [
+    // Random products data
+    var products = [
       {
-        title: '50% Off',
-        description: 'Get 50% off on all products!',
-        buttonText: 'Shop Now',
-        buttonUrl: 'https://example.com/shop',
-        imageUrl: 'https://example.com/images/offer1.jpg'
+        title: 'Product A',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        price: '$49.99',
+        buttonText: 'Add to Cart',
+        buttonUrl: 'https://example.com/cart',
+        imageUrl: 'https://example.com/images/product1.jpg'
       },
       {
-        title: 'Free Shipping',
-        description: 'Enjoy free shipping on your first order.',
-        buttonText: 'Start Shopping',
-        buttonUrl: 'https://example.com/shop',
-        imageUrl: 'https://example.com/images/offer2.jpg'
+        title: 'Product B',
+        description: 'Praesent non ligula ut tortor lacinia faucibus vitae sit amet nulla.',
+        price: '$79.99',
+        buttonText: 'Buy Now',
+        buttonUrl: 'https://example.com/checkout',
+        imageUrl: 'https://example.com/images/product2.jpg'
       },
       {
-        title: 'Limited Time Offer',
-        description: 'Don\'t miss out on our limited time offer.',
-        buttonText: 'Learn More',
-        buttonUrl: 'https://example.com/offer',
-        imageUrl: 'https://example.com/images/offer3.jpg'
+        title: 'Product C',
+        description: 'Etiam ullamcorper nulla ac enim feugiat, id aliquet magna tempor.',
+        price: '$99.99',
+        buttonText: 'View Details',
+        buttonUrl: 'https://example.com/product',
+        imageUrl: 'https://example.com/images/product3.jpg'
       }
     ];
 
-    // Select a random offer
-    var randomOffer = offers[Math.floor(Math.random() * offers.length)];
+    // Select a random product
+    var randomProduct = products[Math.floor(Math.random() * products.length)];
 
-    // Create offer elements
-    var offerContainer = document.getElementById('offerContainer');
+    // Create product elements
+    var productContainer = document.getElementById('productContainer');
 
-    var offerDiv = document.createElement('div');
-    offerDiv.className = 'offer';
+    var productDiv = document.createElement('div');
+    productDiv.className = 'product';
 
-    var offerTitle = document.createElement('h2');
-    offerTitle.textContent = randomOffer.title;
+    var productTitle = document.createElement('h2');
+    productTitle.className = 'product-title';
+    productTitle.textContent = randomProduct.title;
 
-    var offerDescription = document.createElement('p');
-    offerDescription.textContent = randomOffer.description;
+    var productDescription = document.createElement('p');
+    productDescription.className = 'product-description';
+    productDescription.textContent = randomProduct.description;
 
-    var offerImage = document.createElement('img');
-    offerImage.src = randomOffer.imageUrl;
-    offerImage.alt = randomOffer.title;
+    var productPrice = document.createElement('p');
+    productPrice.className = 'product-price';
+    productPrice.textContent = 'Price: ' + randomProduct.price;
+
+    var productImage = document.createElement('img');
+    productImage.src = randomProduct.imageUrl;
+    productImage.alt = randomProduct.title;
 
     var ctaButton = document.createElement('a');
-    ctaButton.className = 'cta-button';
-    ctaButton.textContent = randomOffer.buttonText;
-    ctaButton.href = randomOffer.buttonUrl;
-
-    // Append elements to the container
-    offerDiv.appendChild(offerTitle);
-    offerDiv.appendChild(offerImage);
-    offerDiv.appendChild(offerDescription);
-    offerDiv.appendChild(ctaButton);
-
-    offerContainer.appendChild(offerDiv);
-  </script>
-</body>
-</html>
+    ctaButton
 
